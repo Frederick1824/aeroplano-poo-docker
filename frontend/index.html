@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aeroplanos</title>
+</head>
+<body>
+  <h1>CRUD Aeroplano</h1>
+  <button onclick="cargarAeroplanos()">Cargar aeroplanos</button>
+  <pre id="resultado"></pre>
+
+  <script>
+    async function cargarAeroplanos() {
+      const res = await fetch("http://localhost:3001/aeroplanos");
+      const data = await res.json();
+      document.getElementById("resultado").textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
